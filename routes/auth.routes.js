@@ -90,15 +90,15 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
 
 // Get route to go main page
 router.get('/main', isLoggedIn, (req, res) => {
-  // const { username } = req.session.currentUser;
-  res.render('users/main', req.session.currentUser);
+  const { username } = req.session.currentUser;
+  res.render('users/main', { username });
 })
 
 
 // Get route to go private page
 router.get('/private', isLoggedIn, (req, res) => {
-  // const { username } = req.session.currentUser;
-  res.render('users/private', req.session.currentUser);
+  const { username } = req.session.currentUser;
+  res.render('users/private', { username });
 })
 
 module.exports = router;
