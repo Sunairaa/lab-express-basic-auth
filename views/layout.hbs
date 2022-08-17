@@ -14,13 +14,20 @@
         <li id="to-left">
           <p><a href="/"> Users - demo </a></p>
         </li>
-        <li id="to-right">
-          <a href="/auth/signup">Signup</a><span> | </span>
-          <a href="/auth/login">Login</a>
-          {{!-- <form id="logout-form" action="/auth/logout" method="POST">
-            <button>Logout</button>
-          </form> --}}
-        </li>
+        {{#if username}}
+          <li id="to-right">
+            <form id="logout-form" action="/auth/logout" method="POST">
+              <button>Logout</button>
+            </form>
+            <a href="/users/user-profile">Profile</a>
+          </li>
+        {{else}}
+          <li id="to-right">
+            <a href="/auth/signup">Signup</a><span> | </span>
+            <a href="/auth/login">Login</a>
+          </li>
+        {{/if}}
+        
       </ul>
     </nav>
 
